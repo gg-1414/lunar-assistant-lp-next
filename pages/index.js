@@ -9,6 +9,9 @@ const mobileMenuToggle = (event) =>
   document.querySelector('#app').classList.toggle('mobile_menu_on')
 }
 
+const handlePopupToggle = () => {
+  document.querySelector('#app').classList.toggle('faq_popup_on')
+}
 
 export default function Home() {
   return (
@@ -66,17 +69,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        {/* <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a> */}
-        <button className="button" id="popup_button">?</button>
+        <button className="button" id="popup_button" onClick={handlePopupToggle}>?</button>
         <Image src="/images/hand_orb.png" className="hand_orb" alt="hand holding orb" layout="fill" />
         <div className="social_bar">
           <a href="https://discord.gg/eMNdhXqKjk">
@@ -90,6 +83,14 @@ export default function Home() {
           </a>
         </div>
       </footer>
+
+      <div className="blur_overlay" onClick={handlePopupToggle}></div>
+
+      <div className="faq_popup">
+          <p>Lunar Assistant is a Discord bot developed for the Terra Ecosystem community.</p>
+          <p>Most of our features are free of charge.If you wish to use the dashboard to managecomplex role distributions and organize polls,please buy a Lunar Assistant NFT and stakeit on our WebApp.</p>
+          <p>For more information, visit our docs.</p>
+      </div>
     </div>
   )
 }
