@@ -1,0 +1,305 @@
+/**
+ * 🍔 Courtesy of:
+ * https://codepen.io/himalayasingh/pen/GzZWyX?editors=1100
+ */
+ 
+.header
+{
+  padding: 24px 12px;
+  display: flex;
+  position: relative;
+}
+
+.logo
+{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+ 
+.logo img
+{
+  width: 60px;
+  width: 36px;
+}
+
+.logo h1
+{
+  font-size: 24px;
+  font-weight: 100;
+  display: flex;
+  flex-direction: column;
+  color: #0A0A33;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  font-family: 'Uniwars', monospace;
+}
+
+.logo h1 span:first-child
+{
+  font-size: 32px;
+  font-size: 24px;
+}
+
+.logo h1 span:last-child
+{
+  font-size: 17px;
+  font-size: 12.2px;
+}
+
+.hamburger_wrapper
+{
+  position: absolute;
+  right: 24px;
+  top: 28px;
+  width: 39px;
+  overflow: hidden;
+  transform: scale(1.5);
+  z-index: 4;
+}
+
+.hamburger_wrapper button
+{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.hamburger_wrapper .meat
+{
+  position: relative;
+  display: block;
+  height: 29px;
+  cursor: pointer;
+}
+
+.hamburger_wrapper .meat:before,
+.hamburger_wrapper .meat:after,
+.hamburger_wrapper .meat_last
+{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #0A0A33;
+}
+
+.hamburger_wrapper .meat:before,
+.hamburger_wrapper .meat:after
+{
+  content: '';
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) left;
+}
+
+.hamburger_wrapper .meat:before
+{
+  top: 0;
+}
+
+.hamburger_wrapper .meat:after
+{
+  top: 12px;
+}
+
+.hamburger_wrapper .meat_last
+{
+  top: 24px;
+}
+
+.hamburger_wrapper .meat_last:before
+{
+  content: 'MENU';
+  position: absolute;
+  top: 5px;
+  right: 0;
+  left: 0;
+  color: #0A0A33;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.hamburger_wrapper button.active + .meat:before
+{
+  left: -39px;
+}
+
+.hamburger_wrapper button.active + .meat:after
+{
+  left: 39px;
+}
+
+.hamburger_wrapper button.active + .meat .meat_last:before
+{
+  animation:
+    opacityIncrease 0.8s ease 0.2s forwards,
+    moveUpThenDown 0.8s ease 0.2s forwards,
+    shakeWhileMovingUp 0.8s ease 0.2s forwards,
+    shakeWhileMovingDown 0.2s ease 0.8s forwards;
+}
+
+/* MOBILE NAV MENU */
+.main_navigation
+{
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #ededed;
+  z-index: 3;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 2rem;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.main_navigation:after
+{
+  content: '';
+  width: 100vw;
+  height: 80vh;
+  background-image: url('/images/moon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  bottom: -9rem;
+  right: -7rem;
+  z-index: -1;
+}
+
+.main_navigation a
+{
+  color: #0A0A33;
+  cursor: pointer;
+}
+
+.main_navigation .social_bar
+{
+  margin-top: 1.5rem;
+}
+
+.main_navigation .social_bar a
+{
+  text-decoration: none;
+}
+
+
+
+@media (min-width: 768px) {
+  .header .logo img
+  {
+      width: 100px;
+  }
+
+  .header .logo h1 span:first-child
+  {
+      font-size: 60px;
+  }
+
+  .header .logo h1 span:last-child
+  {
+      font-size: 36px;
+  }
+
+  .main_navigation
+  {
+    gap: 3rem;
+    padding: 3rem;
+  }
+
+  .main_navigation a
+  {
+    font-size: 3rem;
+  }
+
+  .main_navigation .social_bar
+  {
+    gap: 2.5rem;
+  }
+
+  .main_navigation .social_bar img
+  {
+    width: 50px;
+  }
+
+  .hamburger_wrapper .meat_last:before
+  {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header
+  {
+    padding: 1.5rem 2.5rem;
+  }
+
+  .hamburger_wrapper
+  {
+    display: none;
+  }
+  
+  .main_navigation
+  {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: auto;
+    justify-content: flex-end;
+    background-color: transparent;
+    padding: 0;
+    align-items: center;
+  }
+
+  .main_navigation:after
+  {
+    right: 2rem;
+  }
+
+  .main_navigation a
+  {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    transition: all .25s;
+  }
+
+  .main_navigation a:not(.dashboard):hover
+  {
+    text-decoration: underline;
+  }
+
+  .main_navigation a.dashboard
+  {
+    background-color: #E5E5E5;
+    padding: .5rem 2rem;
+    border-radius: 45px;
+    border: 2px solid #0A0A33;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    color: #0A0A33;
+    box-shadow: 2px 5px 3px #0A0A33;
+  }
+
+  .main_navigation a.dashboard:hover
+  {
+    transform: translate(2px, 5px);
+    box-shadow: none;
+  }
+
+  .main_navigation .social_bar
+  {
+    display: none;
+  }
+}
