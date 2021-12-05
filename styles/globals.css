@@ -20,9 +20,6 @@ body
   background-position: bottom center;
   background-blend-mode: screen;
   color: #0A0A33;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 canvas
@@ -244,14 +241,6 @@ canvas
 
 #app
 {
-  font-family: 'Jura', serif;
-  background-color: #B3B3B3;
-  background-image: url('/images/mesh-background.png');
-  background-repeat: no-repeat;
-  background-size: auto 60vh;
-  background-position: bottom center;
-  background-blend-mode: screen;
-  color: #0A0A33;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -397,7 +386,6 @@ canvas
          shakeWhileMovingDown 0.2s ease 0.8s forwards;
  }
  
- /* MOBILE NAV MENU */
  #main_navigation
  {
    display: none;
